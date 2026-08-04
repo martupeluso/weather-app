@@ -1,3 +1,3 @@
-import { getWeatherData } from "./api";
+import { processWeatherData } from "./api";
 
-console.log(await getWeatherData("buenosaires"));
+console.log(await processWeatherData("buenosaires"));

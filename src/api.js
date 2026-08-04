@@ -10,4 +10,17 @@ async function getWeatherData(location) {
   }
 }
 
-export { getWeatherData };
+async function processWeatherData(location) {
+  try {
+    const weather = await getWeatherData(location);
+    return {
+      location: weather.resolvedAddress,
+      condition: weather.currentConditions.conditions,
+      temperature: weather.currentConditions.temp,
+    };
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export { processWeatherData };
