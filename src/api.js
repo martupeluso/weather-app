@@ -9,3 +9,5 @@ async function getWeatherData(location) {
     throw new Error("Couldn't connect to the API. Please try again.");
   }
 }
+
+export { getWeatherData };
