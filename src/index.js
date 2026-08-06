@@ -1,6 +1,6 @@
-import { processWeatherData } from "./api";
+import { showWeatherData } from "./dom";
 
-console.log(await processWeatherData("buenosaires"));
+await showWeatherData("buenosaires");
 
 const form = document.querySelector("form");
 const locationInput = document.querySelector("#location");
@@ -8,5 +8,5 @@ const locationInput = document.querySelector("#location");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const location = locationInput.value;
-  console.log(await processWeatherData(location));
+  await showWeatherData(location);
 });
