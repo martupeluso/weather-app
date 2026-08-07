@@ -17,6 +17,7 @@ async function processWeatherData(location) {
       location: weather.resolvedAddress,
       condition: weather.currentConditions.conditions,
       temperature: weather.currentConditions.temp,
+      icon: weather.currentConditions.icon,
     };
   } catch (error) {
     console.error(error);

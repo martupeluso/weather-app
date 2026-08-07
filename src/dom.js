@@ -29,7 +29,12 @@ function renderWeatherData(weatherData) {
     temperature.textContent = `Temperature: ${convertFahrenheitToCelsius(weatherData.temperature)}`;
   }
 
-  weatherDataContainer.append(location, condition, temperature);
+  const icon = document.createElement("img");
+  import(`./assets/icons/${weatherData.icon}.svg`).then((module) => {
+    icon.src = module.default;
+  });
+
+  weatherDataContainer.append(location, condition, temperature, icon);
 }
 
 export { weatherData, showWeatherData, renderWeatherData };
