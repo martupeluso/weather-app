@@ -2,16 +2,27 @@ import { processWeatherData } from "./api";
 
 const weatherDataContainer = document.querySelector(".weather-data-container");
 
+let weatherData = null;
+
 async function showWeatherData(location) {
-  const weatherData = await processWeatherData(location);
+  weatherData = await processWeatherData(location);
 
-  weatherDataContainer.textContent = "";
-
-  for (let info in weatherData) {
-    const paragraph = document.createElement("p");
-    paragraph.textContent = `${info}: ${weatherData[info]}`;
-    weatherDataContainer.append(paragraph);
-  }
+  renderWeatherData(weatherData);
 }
 
-export { showWeatherData };
+function renderWeatherData(weatherData) {
+  weatherDataContainer.textContent = "";
+
+  const location = document.createElement("p");
+  location.textContent = `Location: ${weatherData.location}`;
+
+  const condition = document.createElement("p");
+  condition.textContent = `Condition: ${weatherData.condition}`;
+
+  const temperature = document.createElement("p");
+  temperature.textContent = `Temperature: ${weatherData.temperature}`;
+
+  weatherDataContainer.append(location, condition, temperature);
+}
+
+export { weatherData, showWeatherData, renderWeatherData };
