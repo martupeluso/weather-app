@@ -1,4 +1,6 @@
 import { processWeatherData } from "./api";
+import { currentUnit } from "./index";
+import { convertFahrenheitToCelsius } from "./utils";
 
 const weatherDataContainer = document.querySelector(".weather-data-container");
 
@@ -20,7 +22,12 @@ function renderWeatherData(weatherData) {
   condition.textContent = `Condition: ${weatherData.condition}`;
 
   const temperature = document.createElement("p");
-  temperature.textContent = `Temperature: ${weatherData.temperature}`;
+
+  if (currentUnit === "Fahrenheit") {
+    temperature.textContent = `Temperature: ${weatherData.temperature}`;
+  } else {
+    temperature.textContent = `Temperature: ${convertFahrenheitToCelsius(weatherData.temperature)}`;
+  }
 
   weatherDataContainer.append(location, condition, temperature);
 }
