@@ -34,6 +34,14 @@ async function processWeatherData(location) {
       uvIndex: today.uvindex,
       sunrise: today.sunrise,
       sunset: today.sunset,
+
+      forecast: weather.days.slice(1, 6).map((day) => {
+        return {
+          icon: day.icon,
+          highest: day.tempmax,
+          lowest: day.tempmin,
+        };
+      }),
     };
   } catch (error) {
     console.error(error);
