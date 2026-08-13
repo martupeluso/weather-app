@@ -13,11 +13,27 @@ async function getWeatherData(location) {
 async function processWeatherData(location) {
   try {
     const weather = await getWeatherData(location);
+
+    const current = weather.currentConditions;
+    const today = weather.days[0];
+
     return {
       location: weather.resolvedAddress,
-      condition: weather.currentConditions.conditions,
-      temperature: weather.currentConditions.temp,
-      icon: weather.currentConditions.icon,
+
+      condition: current.conditions,
+      temperature: current.temp,
+      icon: current.icon,
+      feelsLike: current.feelslike,
+
+      humidity: current.humidity,
+      windSpeed: current.windspeed,
+
+      highest: today.tempmax,
+      lowest: today.tempmin,
+      chanceOfRain: today.precipprob,
+      uvIndex: today.uvindex,
+      sunrise: today.sunrise,
+      sunset: today.sunset,
     };
   } catch (error) {
     console.error(error);
