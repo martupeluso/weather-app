@@ -48,11 +48,48 @@
 }
 
 body {
+  background-color: aliceblue;
   font-family: "Nunito", var(--font-stack);
+  padding: 1rem;
+  max-width: 1200px;
+  margin: auto;
   line-height: 1.5;
 }
 
 h1 {
   font-family: "Fredoka", var(--font-stack);
   font-size: 2.5rem;
+  margin-right: auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header form label,
+.header form button {
+  display: none;
+}
+
+.header form input {
+  width: 585px;
+  height: 35px;
+  padding: 1rem;
+  border-radius: 25px;
+  border: 2px solid var(--accent-color);
+  margin-right: 1rem;
+}
+
+.header .unit-toggle-btn {
+  font-family: Nunito, var(--font-stack);
+  cursor: pointer;
+  background: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  border: 2px solid var(--accent-color);
+}
+
+.header .unit-toggle-btn:hover {
+  background-color: #4ec1ff44;
 }
