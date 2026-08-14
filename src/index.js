@@ -1,3 +1,4 @@
+import "./styles.css";
 import { weatherData, showWeatherData, renderWeatherData } from "./dom";
 
 let currentUnit = "Fahrenheit";
