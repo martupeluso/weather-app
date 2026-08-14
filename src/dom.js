@@ -28,9 +28,11 @@ function renderWeatherData(weatherData) {
   basicInfoContainer.classList.add("basic-info-container");
 
   const condition = document.createElement("p");
+  condition.classList.add("condition");
   condition.textContent = `${weatherData.condition}`;
 
   const location = document.createElement("p");
+  location.classList.add("location");
   location.textContent = `${weatherData.location}`;
 
   const iconAndTempContainer = document.createElement("div");
@@ -49,10 +51,16 @@ function renderWeatherData(weatherData) {
   detailedTempContainer.classList.add("detailed-temp-container");
 
   const feelsLike = document.createElement("p");
+
+  const highestLowestContainer = document.createElement("div");
+  highestLowestContainer.classList.add("highest-lowest-container");
+
   const highest = document.createElement("p");
   const lowest = document.createElement("p");
 
-  detailedTempContainer.append(feelsLike, highest, lowest);
+  highestLowestContainer.append(highest, lowest);
+
+  detailedTempContainer.append(feelsLike, highestLowestContainer);
 
   if (currentUnit === "Fahrenheit") {
     temperature.textContent = `${weatherData.temperature}°`;
@@ -75,7 +83,6 @@ function renderWeatherData(weatherData) {
 
   const expandedInfoContainer = document.createElement("div");
   expandedInfoContainer.classList.add("expanded-info-container");
-
   const leftColumn = document.createElement("div");
   leftColumn.classList.add("expanded-info-column");
 
@@ -85,13 +92,17 @@ function renderWeatherData(weatherData) {
   const humidityIcon = document.createElement("img");
   humidityIcon.src = humiditySVG;
 
+  const humidityText = document.createElement("div");
+  humidityText.classList.add("info-text");
+
   const humidityLabel = document.createElement("p");
   humidityLabel.textContent = "Humidity";
 
   const humidityValue = document.createElement("p");
   humidityValue.textContent = `${weatherData.humidity}%`;
 
-  humidityContainer.append(humidityIcon, humidityLabel, humidityValue);
+  humidityText.append(humidityLabel, humidityValue);
+  humidityContainer.append(humidityIcon, humidityText);
 
   const chanceOfRainContainer = document.createElement("div");
   chanceOfRainContainer.classList.add("info-row");
@@ -99,17 +110,17 @@ function renderWeatherData(weatherData) {
   const chanceOfRainIcon = document.createElement("img");
   chanceOfRainIcon.src = chanceOfRainSVG;
 
+  const chanceOfRainText = document.createElement("div");
+  chanceOfRainText.classList.add("info-text");
+
   const chanceOfRainLabel = document.createElement("p");
   chanceOfRainLabel.textContent = "Chance of rain";
 
   const chanceOfRainValue = document.createElement("p");
   chanceOfRainValue.textContent = `${weatherData.chanceOfRain}%`;
 
-  chanceOfRainContainer.append(
-    chanceOfRainIcon,
-    chanceOfRainLabel,
-    chanceOfRainValue,
-  );
+  chanceOfRainText.append(chanceOfRainLabel, chanceOfRainValue);
+  chanceOfRainContainer.append(chanceOfRainIcon, chanceOfRainText);
 
   const windContainer = document.createElement("div");
   windContainer.classList.add("info-row");
@@ -117,13 +128,17 @@ function renderWeatherData(weatherData) {
   const windIcon = document.createElement("img");
   windIcon.src = windSpeedSVG;
 
+  const windText = document.createElement("div");
+  windText.classList.add("info-text");
+
   const windLabel = document.createElement("p");
   windLabel.textContent = "Wind speed";
 
   const windValue = document.createElement("p");
   windValue.textContent = `${weatherData.windSpeed} mph`;
 
-  windContainer.append(windIcon, windLabel, windValue);
+  windText.append(windLabel, windValue);
+  windContainer.append(windIcon, windText);
 
   leftColumn.append(humidityContainer, chanceOfRainContainer, windContainer);
 
@@ -136,13 +151,17 @@ function renderWeatherData(weatherData) {
   const uvIcon = document.createElement("img");
   uvIcon.src = uvIndexSVG;
 
+  const uvText = document.createElement("div");
+  uvText.classList.add("info-text");
+
   const uvLabel = document.createElement("p");
   uvLabel.textContent = "UV Index";
 
   const uvValue = document.createElement("p");
   uvValue.textContent = `${weatherData.uvIndex}`;
 
-  uvContainer.append(uvIcon, uvLabel, uvValue);
+  uvText.append(uvLabel, uvValue);
+  uvContainer.append(uvIcon, uvText);
 
   const sunriseContainer = document.createElement("div");
   sunriseContainer.classList.add("info-row");
@@ -150,13 +169,17 @@ function renderWeatherData(weatherData) {
   const sunriseIcon = document.createElement("img");
   sunriseIcon.src = sunriseSVG;
 
+  const sunriseText = document.createElement("div");
+  sunriseText.classList.add("info-text");
+
   const sunriseLabel = document.createElement("p");
   sunriseLabel.textContent = "Sunrise";
 
   const sunriseValue = document.createElement("p");
   sunriseValue.textContent = `${weatherData.sunrise}`;
 
-  sunriseContainer.append(sunriseIcon, sunriseLabel, sunriseValue);
+  sunriseText.append(sunriseLabel, sunriseValue);
+  sunriseContainer.append(sunriseIcon, sunriseText);
 
   const sunsetContainer = document.createElement("div");
   sunsetContainer.classList.add("info-row");
@@ -164,13 +187,17 @@ function renderWeatherData(weatherData) {
   const sunsetIcon = document.createElement("img");
   sunsetIcon.src = sunsetSVG;
 
+  const sunsetText = document.createElement("div");
+  sunsetText.classList.add("info-text");
+
   const sunsetLabel = document.createElement("p");
   sunsetLabel.textContent = "Sunset";
 
   const sunsetValue = document.createElement("p");
   sunsetValue.textContent = `${weatherData.sunset}`;
 
-  sunsetContainer.append(sunsetIcon, sunsetLabel, sunsetValue);
+  sunsetText.append(sunsetLabel, sunsetValue);
+  sunsetContainer.append(sunsetIcon, sunsetText);
 
   rightColumn.append(uvContainer, sunriseContainer, sunsetContainer);
 
