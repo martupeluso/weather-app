@@ -40,3 +40,13 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --accent-color: #4ec2ff;
 }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.5;
+}
