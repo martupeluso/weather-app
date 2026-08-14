@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "Fredoka";
+  src:
+    url("./assets/fonts/Fredoka-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Fredoka-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src:
+    url("./assets/fonts/Nunito-Regular.woff2") format("woff2"),
+    url("./assets/fonts/Nunito-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src:
+    url("./assets/fonts/Nunito-Medium.woff2") format("woff2"),
+    url("./assets/fonts/Nunito-Medium.woff") format("woff");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src:
+    url("./assets/fonts/Nunito-Bold.woff2") format("woff2"),
+    url("./assets/fonts/Nunito-Bold.woff") format("woff");
+  font-weight: 700;
+  font-display: swap;
+}
