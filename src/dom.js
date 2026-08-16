@@ -18,6 +18,7 @@ async function showWeatherData(location) {
 
   renderWeatherData(weatherData);
 }
+
 function renderWeatherData(weatherData) {
   weatherDataContainer.textContent = "";
 
@@ -205,7 +206,64 @@ function renderWeatherData(weatherData) {
 
   todaysDataContainer.append(basicInfoContainer, expandedInfoContainer);
 
-  weatherDataContainer.append(todaysDataContainer);
+  const nextFiveDaysDataContainer = document.createElement("div");
+  nextFiveDaysDataContainer.classList.add("next-five-days-data-container");
+
+  const nextFiveDaysTitle = document.createElement("h2");
+  nextFiveDaysTitle.textContent = "Next 5 days";
+
+  const nextFiveDaysDetailsContainer = document.createElement("div");
+  nextFiveDaysDetailsContainer.classList.add(
+    "next-five-days-details-container",
+  );
+
+  weatherData.forecast.forEach((day) => {
+    const dayContainer = document.createElement("div");
+    dayContainer.classList.add("day-container");
+
+    const iconContainer = document.createElement("div");
+    iconContainer.classList.add("icon-container");
+
+    const dayConditionIcon = document.createElement("img");
+
+    import(`./assets/icons/${day.icon}.svg`).then((module) => {
+      dayConditionIcon.src = module.default;
+    });
+
+    dayConditionIcon.width = 40;
+
+    iconContainer.append(dayConditionIcon);
+
+    const dayTitle = document.createElement("p");
+    dayTitle.textContent = "Placeholder";
+
+    const dayHighestLowestContainer = document.createElement("div");
+    dayHighestLowestContainer.classList.add("day-highest-lowest-container");
+
+    const dayHighest = document.createElement("p");
+
+    const dayLowest = document.createElement("p");
+
+    if (currentUnit === "Fahrenheit") {
+      dayHighest.textContent = `${day.highest}°`;
+      dayLowest.textContent = `${day.lowest}°`;
+    } else {
+      dayHighest.textContent = `${convertFahrenheitToCelsius(day.highest)}°`;
+      dayLowest.textContent = `${convertFahrenheitToCelsius(day.lowest)}°`;
+    }
+
+    dayHighestLowestContainer.append(dayHighest, dayLowest);
+
+    dayContainer.append(iconContainer, dayTitle, dayHighestLowestContainer);
+    nextFiveDaysDetailsContainer.append(dayContainer);
+  });
+
+  nextFiveDaysDataContainer.append(
+    nextFiveDaysTitle,
+    nextFiveDaysDetailsContainer,
+  );
+
+  weatherDataContainer.append(todaysDataContainer, nextFiveDaysDataContainer);
 }
 
 export { weatherData, showWeatherData, renderWeatherData };

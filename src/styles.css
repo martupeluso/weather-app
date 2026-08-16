@@ -55,6 +55,7 @@ body {
   font-family: "Nunito", var(--font-stack);
   padding: 1rem;
   max-width: 1200px;
+  max-height: 100dvh;
   margin: auto;
   line-height: 1.5;
 }
@@ -68,6 +69,7 @@ h1 {
 .header {
   display: flex;
   align-items: center;
+  padding: 1rem;
 }
 
 .header form label,
@@ -97,6 +99,12 @@ h1 {
   background-color: #4ec1ff44;
 }
 
+.weather-data-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .todays-data-container {
   padding: 2rem 8rem 2rem 4rem;
   display: flex;
@@ -104,6 +112,7 @@ h1 {
   justify-content: space-between;
   border-radius: 25px;
   background-color: #fff;
+  margin-bottom: 2rem;
 }
 
 .basic-info-container {
@@ -160,5 +169,39 @@ h1 {
 .expanded-info-container .info-row {
   display: flex;
   align-items: center;
+  gap: 1rem;
+}
+
+.next-five-days-data-container {
+  padding: 2rem 8rem 2rem 4rem;
+  border-radius: 25px;
+  background-color: #fff;
+}
+
+.next-five-days-details-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.next-five-days-data-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-container {
+  padding: 1.5rem 1.7rem;
+  border-radius: 50px;
+  border: 2px solid var(--accent-color);
+}
+
+.day-highest-lowest-container {
+  display: flex;
   gap: 1rem;
 }
