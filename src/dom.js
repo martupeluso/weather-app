@@ -230,7 +230,7 @@ function renderWeatherData(weatherData) {
       dayConditionIcon.src = module.default;
     });
 
-    dayConditionIcon.width = 40;
+    dayConditionIcon.width = 50;
 
     iconContainer.append(dayConditionIcon);
 
