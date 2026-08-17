@@ -39,6 +39,7 @@ async function processWeatherData(location) {
         return {
           icon: day.icon,
           date: day.datetime,
+          condition: day.conditions,
           highest: day.tempmax,
           lowest: day.tempmin,
         };

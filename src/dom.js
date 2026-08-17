@@ -254,6 +254,9 @@ function renderWeatherData(weatherData) {
       : `${dayNames[dayDate.getDay()]}`;
     dayTitle.classList.add("day-title");
 
+    const dayCondition = document.createElement("p");
+    dayCondition.textContent = `${day.condition}`;
+
     const dayHighestLowestContainer = document.createElement("div");
     dayHighestLowestContainer.classList.add("day-highest-lowest-container");
 
@@ -271,7 +274,12 @@ function renderWeatherData(weatherData) {
 
     dayHighestLowestContainer.append(dayHighest, dayLowest);
 
-    dayContainer.append(iconContainer, dayTitle, dayHighestLowestContainer);
+    dayContainer.append(
+      iconContainer,
+      dayTitle,
+      dayCondition,
+      dayHighestLowestContainer,
+    );
     nextFiveDaysDetailsContainer.append(dayContainer);
   });
 
