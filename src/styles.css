@@ -119,12 +119,12 @@ h2 {
   align-items: center;
   justify-content: space-between;
   border-radius: 25px;
-  background-color: #fff;
+  background-color: #ffffff80;
   margin-bottom: 2rem;
 }
 
 .basic-info-container {
-  max-width: 35%;
+  max-width: 60%;
 }
 
 .location {
@@ -178,7 +178,7 @@ h2 {
 .next-five-days-data-container {
   padding: 2rem 4rem 2rem 4rem;
   border-radius: 25px;
-  background-color: #fff;
+  background-color: #ffffff80;
 }
 
 .next-five-days-details-container {
