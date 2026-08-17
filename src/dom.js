@@ -24,6 +24,8 @@ const dayNames = [
 let weatherData = null;
 
 async function showWeatherData(location) {
+  renderLoadingComponent();
+
   weatherData = await processWeatherData(location);
 
   renderWeatherData(weatherData);
@@ -279,6 +281,14 @@ function renderWeatherData(weatherData) {
   );
 
   weatherDataContainer.append(todaysDataContainer, nextFiveDaysDataContainer);
+}
+
+function renderLoadingComponent() {
+  weatherDataContainer.textContent = "";
+
+  const loadingComponent = document.createElement("p");
+  loadingComponent.textContent = "Loading...";
+  weatherDataContainer.append(loadingComponent);
 }
 
 export { weatherData, showWeatherData, renderWeatherData };
