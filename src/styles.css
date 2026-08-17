@@ -70,6 +70,10 @@ h1 {
   margin-right: auto;
 }
 
+h2 {
+  font-size: 2.5rem;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -121,11 +125,6 @@ h1 {
 
 .basic-info-container {
   max-width: 35%;
-}
-
-.condition {
-  font-size: 2.5rem;
-  font-weight: 700;
 }
 
 .location {
@@ -188,7 +187,6 @@ h1 {
 }
 
 .next-five-days-data-container h2 {
-  font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 

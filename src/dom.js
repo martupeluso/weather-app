@@ -38,9 +38,8 @@ function renderWeatherData(weatherData) {
   const basicInfoContainer = document.createElement("div");
   basicInfoContainer.classList.add("basic-info-container");
 
-  const condition = document.createElement("p");
-  condition.classList.add("condition");
-  condition.textContent = `${weatherData.condition}`;
+  const condition = document.createElement("h2");
+  condition.textContent = `Today: ${weatherData.condition}`;
 
   const location = document.createElement("p");
   location.classList.add("location");
