@@ -206,4 +206,14 @@ h2 {
 .day-highest-lowest-container {
   display: flex;
   gap: 1rem;
+  font-size: 1.1rem;
+}
+
+.day-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.day-highest-lowest-container :nth-child(2) {
+  color: #808080;
 }

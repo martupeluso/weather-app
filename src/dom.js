@@ -74,14 +74,14 @@ function renderWeatherData(weatherData) {
 
   if (currentUnit === "Fahrenheit") {
     temperature.textContent = `${weatherData.temperature}°`;
-    feelsLike.textContent = `Feels like: ${weatherData.feelsLike}°`;
-    highest.textContent = `H: ${weatherData.highest}°`;
-    lowest.textContent = `L: ${weatherData.lowest}°`;
+    feelsLike.innerHTML = `<b>Feels like:</b> ${weatherData.feelsLike}°`;
+    highest.innerHTML = `<b>H:</b> ${weatherData.highest}°`;
+    lowest.innerHTML = `<b>L:</b> ${weatherData.lowest}°`;
   } else {
     temperature.textContent = `${convertFahrenheitToCelsius(weatherData.temperature)}°`;
-    feelsLike.textContent = `Feels like: ${convertFahrenheitToCelsius(weatherData.feelsLike)}°`;
-    highest.textContent = `H: ${convertFahrenheitToCelsius(weatherData.highest)}°`;
-    lowest.textContent = `L: ${convertFahrenheitToCelsius(weatherData.lowest)}°`;
+    feelsLike.innerHTML = `<b>Feels like:</b> ${convertFahrenheitToCelsius(weatherData.feelsLike)}°`;
+    highest.innerHTML = `<b>H:</b> ${convertFahrenheitToCelsius(weatherData.highest)}°`;
+    lowest.innerHTML = `<b>L:</b> ${convertFahrenheitToCelsius(weatherData.lowest)}°`;
   }
 
   basicInfoContainer.append(
@@ -109,7 +109,7 @@ function renderWeatherData(weatherData) {
   humidityLabel.textContent = "Humidity";
 
   const humidityValue = document.createElement("p");
-  humidityValue.textContent = `${weatherData.humidity}%`;
+  humidityValue.innerHTML = `<b>${weatherData.humidity}%</b>`;
 
   humidityText.append(humidityLabel, humidityValue);
   humidityContainer.append(humidityIcon, humidityText);
@@ -127,7 +127,7 @@ function renderWeatherData(weatherData) {
   chanceOfRainLabel.textContent = "Chance of rain";
 
   const chanceOfRainValue = document.createElement("p");
-  chanceOfRainValue.textContent = `${weatherData.chanceOfRain}%`;
+  chanceOfRainValue.innerHTML = `<b>${weatherData.chanceOfRain}%</b>`;
 
   chanceOfRainText.append(chanceOfRainLabel, chanceOfRainValue);
   chanceOfRainContainer.append(chanceOfRainIcon, chanceOfRainText);
@@ -145,7 +145,7 @@ function renderWeatherData(weatherData) {
   windLabel.textContent = "Wind speed";
 
   const windValue = document.createElement("p");
-  windValue.textContent = `${weatherData.windSpeed} mph`;
+  windValue.innerHTML = `<b>${weatherData.windSpeed} mph</b>`;
 
   windText.append(windLabel, windValue);
   windContainer.append(windIcon, windText);
@@ -168,7 +168,7 @@ function renderWeatherData(weatherData) {
   uvLabel.textContent = "UV Index";
 
   const uvValue = document.createElement("p");
-  uvValue.textContent = `${weatherData.uvIndex}`;
+  uvValue.innerHTML = `<b>${weatherData.uvIndex}</b>`;
 
   uvText.append(uvLabel, uvValue);
   uvContainer.append(uvIcon, uvText);
@@ -186,7 +186,7 @@ function renderWeatherData(weatherData) {
   sunriseLabel.textContent = "Sunrise";
 
   const sunriseValue = document.createElement("p");
-  sunriseValue.textContent = `${weatherData.sunrise}`;
+  sunriseValue.innerHTML = `<b>${weatherData.sunrise}<b>`;
 
   sunriseText.append(sunriseLabel, sunriseValue);
   sunriseContainer.append(sunriseIcon, sunriseText);
@@ -204,7 +204,7 @@ function renderWeatherData(weatherData) {
   sunsetLabel.textContent = "Sunset";
 
   const sunsetValue = document.createElement("p");
-  sunsetValue.textContent = `${weatherData.sunset}`;
+  sunsetValue.innerHTML = `<b>${weatherData.sunset}</b>`;
 
   sunsetText.append(sunsetLabel, sunsetValue);
   sunsetContainer.append(sunsetIcon, sunsetText);
@@ -250,6 +250,7 @@ function renderWeatherData(weatherData) {
     dayTitle.textContent = isTomorrow
       ? "Tomorrow"
       : `${dayNames[dayDate.getDay()]}`;
+    dayTitle.classList.add("day-title");
 
     const dayHighestLowestContainer = document.createElement("div");
     dayHighestLowestContainer.classList.add("day-highest-lowest-container");
