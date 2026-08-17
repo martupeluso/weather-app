@@ -11,6 +11,16 @@ import { convertFahrenheitToCelsius } from "./utils";
 
 const weatherDataContainer = document.querySelector(".weather-data-container");
 
+const dayNames = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
 let weatherData = null;
 
 async function showWeatherData(location) {
@@ -234,8 +244,13 @@ function renderWeatherData(weatherData) {
 
     iconContainer.append(dayConditionIcon);
 
+    const dayDate = new Date(`${day.date}T00:00:00`);
+    const isTomorrow = weatherData.forecast[0] === day;
+
     const dayTitle = document.createElement("p");
-    dayTitle.textContent = "Placeholder";
+    dayTitle.textContent = isTomorrow
+      ? "Tomorrow"
+      : `${dayNames[dayDate.getDay()]}`;
 
     const dayHighestLowestContainer = document.createElement("div");
     dayHighestLowestContainer.classList.add("day-highest-lowest-container");

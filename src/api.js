@@ -38,6 +38,7 @@ async function processWeatherData(location) {
       forecast: weather.days.slice(1, 6).map((day) => {
         return {
           icon: day.icon,
+          date: day.datetime,
           highest: day.tempmax,
           lowest: day.tempmin,
         };
