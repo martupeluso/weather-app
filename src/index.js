@@ -12,6 +12,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const location = locationInput.value;
   await showWeatherData(location);
+  locationInput.value = "";
 });
 
 const unitToggleBtn = document.querySelector(".unit-toggle-btn");
