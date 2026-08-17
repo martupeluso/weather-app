@@ -92,12 +92,13 @@ h2 {
   border-radius: 25px;
   border: 2px solid var(--accent-color);
   margin-right: 1rem;
+  background-color: #ffffff80;
 }
 
 .header .unit-toggle-btn {
   font-family: Nunito, var(--font-stack);
   cursor: pointer;
-  background: none;
+  background-color: #ffffff80;
   padding: 0.5rem 1rem;
   border-radius: 25px;
   border: 2px solid var(--accent-color);
