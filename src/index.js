@@ -11,7 +11,11 @@ const locationInput = document.querySelector("#location");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const location = locationInput.value;
-  await showWeatherData(location);
+
+  if (location) {
+    await showWeatherData(location);
+  }
+
   locationInput.value = "";
 });
 

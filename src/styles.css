@@ -108,6 +108,7 @@ h2 {
 }
 
 .weather-data-container {
+  padding: 0rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
