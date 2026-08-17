@@ -34,6 +34,13 @@ async function showWeatherData(location) {
 function renderWeatherData(weatherData) {
   weatherDataContainer.textContent = "";
 
+  if (!weatherData) {
+    const errorMessage = document.createElement("p");
+    errorMessage.textContent = "Please enter a valid location.";
+    weatherDataContainer.append(errorMessage);
+    return;
+  }
+
   const todaysDataContainer = document.createElement("div");
   todaysDataContainer.classList.add("todays-data-container");
 
