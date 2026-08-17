@@ -59,7 +59,7 @@ body {
   font-family: "Nunito", var(--font-stack);
   padding: 1rem;
   max-width: 1200px;
-  max-height: 100dvh;
+  min-height: 100dvh;
   margin: auto;
   line-height: 1.5;
 }
